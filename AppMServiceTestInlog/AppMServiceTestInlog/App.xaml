@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             x:Class="AppMServiceTestInlog.App"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:Application.WindowSoftInputModeAdjust="Resize">
+	<Application.Resources>
+
+		<!-- Application resource dictionary -->
+		<ResourceDictionary>
+			<OnPlatform x:TypeArguments="x:String" 
+	                x:Key="FontAwesomeSolid">
+				<On Platform="Android" 
+		        Value="fa-solid-900.ttf#Regular" />
+				<On Platform="iOS" 
+		        Value="fa-solid-900-Solid" />
+			</OnPlatform>
+		</ResourceDictionary>
+
+
+		<Color x:FactoryMethod="FromRgb" x:Key="ThemeColorApp">
+			<x:Arguments>
+				<x:Int32>59</x:Int32>
+				<x:Int32>59</x:Int32>
+				<x:Int32>59</x:Int32>
+			</x:Arguments>
+		</Color>
+
+		<Color x:FactoryMethod="FromRgb" x:Key="ColorPrimary">
+			<x:Arguments>
+				<x:Int32>245</x:Int32>
+				<x:Int32>245</x:Int32>
+				<x:Int32>245</x:Int32>
+			</x:Arguments>
+		</Color>
+
+		<Color x:FactoryMethod="FromRgb" x:Key="ColorPrimaryMinor">
+			<x:Arguments>
+				<x:Int32>98</x:Int32>
+				<x:Int32>98</x:Int32>
+				<x:Int32>98</x:Int32>
+			</x:Arguments>
+		</Color>
+
+		<Color x:FactoryMethod="FromRgb" x:Key="ColorPrimaryMinor2">
+			<x:Arguments>
+				<x:Int32>160</x:Int32>
+				<x:Int32>160</x:Int32>
+				<x:Int32>160</x:Int32>
+			</x:Arguments>
+		</Color>
+
+		<Color x:FactoryMethod="FromRgb" x:Key="ColorRating">
+			<x:Arguments>
+				<x:Int32>46</x:Int32>
+				<x:Int32>139</x:Int32>
+				<x:Int32>87</x:Int32>
+			</x:Arguments>
+		</Color>
+
+		<Color x:FactoryMethod="FromRgb" x:Key="ColorRatingProgress">
+			<x:Arguments>
+				<x:Int32>70</x:Int32>
+				<x:Int32>144</x:Int32>
+				<x:Int32>193</x:Int32>
+			</x:Arguments>
+		</Color>
+
+		<Color x:FactoryMethod="FromRgb" x:Key="ColorPrimaryContrast">
+			<x:Arguments>
+				<x:Int32>59</x:Int32>
+				<x:Int32>59</x:Int32>
+				<x:Int32>59</x:Int32>
+			</x:Arguments>
+		</Color>
+
+		<Color x:FactoryMethod="FromRgb" x:Key="ColorSecondary">
+			<x:Arguments>
+				<x:Int32>0</x:Int32>
+				<x:Int32>0</x:Int32>
+				<x:Int32>0</x:Int32>
+			</x:Arguments>
+		</Color>
+
+		<Color x:FactoryMethod="FromRgb" x:Key="ColorAlternative">
+			<x:Arguments>
+				<x:Int32>4</x:Int32>
+				<x:Int32>43</x:Int32>
+				<x:Int32>83</x:Int32>
+			</x:Arguments>
+		</Color>
+
+	</Application.Resources>
+</prism:PrismApplication>
