@@ -1,10 +1,14 @@
 ﻿namespace AppXamarinTestThemoviedb.iOS
 {
+	using Acr.UserDialogs;
+
 	using AppXamarinTestThemoviedb.Shared;
 
 	using FFImageLoading.Forms.Platform;
 
 	using Foundation;
+
+	using Lottie.Forms.iOS.Renderers;
 
 	using Prism;
 	using Prism.Ioc;
@@ -31,6 +35,8 @@
 			global::Xamarin.Forms.Forms.Init();
 			FormsMaterial.Init();
 			CachedImageRenderer.Init();
+			////UserDialogs.Init();
+			AnimationViewRenderer.Init();
 			LoadApplication(new App(new iOSInitializer()));
 
 			return base.FinishedLaunching(app, options);

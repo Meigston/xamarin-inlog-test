@@ -7,6 +7,10 @@ namespace AppXamarinTestThemoviedb.Shared
 	using AppXamarinTestThemoviedb.Shared.ViewModels;
 	using AppXamarinTestThemoviedb.Shared.Views;
 
+	using Microsoft.AppCenter;
+	using Microsoft.AppCenter.Analytics;
+	using Microsoft.AppCenter.Crashes;
+
 	using Prism;
 	using Prism.Ioc;
 
@@ -14,7 +18,10 @@ namespace AppXamarinTestThemoviedb.Shared
 	using Xamarin.Essentials.Interfaces;
 	using Xamarin.Forms;
 
+	using DeviceXforms = Xamarin.Forms.Device;
 	using MainPage = AppXamarinTestThemoviedb.Shared.Views.MainPage;
+
+
 
 	public partial class App
 	{
@@ -25,9 +32,14 @@ namespace AppXamarinTestThemoviedb.Shared
 
 		protected override async void OnInitialized()
 		{
-			Device.SetFlags(new[] { "Shapes_Experimental", "Brush_Experimental" });
+			DeviceXforms.SetFlags(new[] { "Shapes_Experimental", "Brush_Experimental" });
 			InitializeComponent();
 			XF.Material.Forms.Material.Init(this);
+
+			AppCenter.Start(
+				"ios=58700844-1f8b-4af7-b72c-5b5d043c4873;" + "android=48a21bd8-5bfc-4cf8-86d6-e694520f7b32",
+				typeof(Analytics),
+				typeof(Crashes));
 #if DEBUG
 			HotReloader.Current.Run(this);
 #endif

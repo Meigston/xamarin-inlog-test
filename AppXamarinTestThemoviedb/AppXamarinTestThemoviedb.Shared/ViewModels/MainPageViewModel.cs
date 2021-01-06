@@ -1,5 +1,7 @@
 ﻿namespace AppXamarinTestThemoviedb.Shared.ViewModels
 {
+	using System.Threading.Tasks;
+
 	using Acr.UserDialogs;
 
 	using AppXamarinTestThemoviedb.Shared.Models;
@@ -9,6 +11,7 @@
 	using Prism.Commands;
 	using Prism.Navigation;
 
+	using Xamarin.Forms;
 	using Xamarin.Forms.Extended;
 
 	public class MainPageViewModel : ViewModelBase
@@ -23,9 +26,15 @@
 
 			this._isBusy = false;
 			this.DefineInfiniteScroll();
-			this.SearchMoviesCommand.Execute();
+			if (Device.RuntimePlatform == Device.iOS)
+			{
+				this.LoadMovies();
+			}
+			else
+			{
+				this.SearchMoviesCommand.Execute();
+			}
 		}
-
 
 		private InfiniteScrollCollection<Movie> _movies;
 
@@ -61,9 +70,7 @@
 				{
 					this.IsBusy = true;
 					UserDialogs.Instance.ShowLoading("Buscando Filmes...");
-					this.page = 1;
-					this.Movies.Clear();
-					this.Movies.AddRange(await this.movieDbService.GetMovies(search: this.SearchText, page: this.page));
+					await this.LoadMovies();
 
 					UserDialogs.Instance.HideLoading();
 					this.IsBusy = false;
@@ -103,6 +110,13 @@
 					return movies;
 				}
 			};
+		}
+
+		private async Task LoadMovies()
+		{
+			this.page = 1;
+			this.Movies.Clear();
+			this.Movies.AddRange(await this.movieDbService.GetMovies(search: this.SearchText, page: this.page));
 		}
 	}
 }

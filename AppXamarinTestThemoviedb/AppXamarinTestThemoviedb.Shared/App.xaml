@@ -14,7 +14,7 @@
 				<On Platform="Android" 
 		        Value="fa-solid-900.ttf#Regular" />
 				<On Platform="iOS" 
-		        Value="fa-solid-900-Solid" />
+		        Value="fa-solid-900#Regular" />
 			</OnPlatform>
 		</ResourceDictionary>
 
