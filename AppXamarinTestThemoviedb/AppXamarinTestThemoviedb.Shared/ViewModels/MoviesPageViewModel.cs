@@ -1,7 +1,9 @@
 ﻿namespace AppXamarinTestThemoviedb.Shared.ViewModels
 {
+	using System;
 	using System.Linq;
 	using System.Threading.Tasks;
+	using System.Windows.Input;
 
 	using Acr.UserDialogs;
 
@@ -15,18 +17,17 @@
 	using Xamarin.Forms;
 	using Xamarin.Forms.Extended;
 
-	public class MainPageViewModel : ViewModelBase
+	public class MoviesPageViewModel : ViewModelBase
 	{
 		private readonly IMovieDbService movieDbService;
 
-		public MainPageViewModel(INavigationService navigationService, IMovieDbService movieDbService)
+		public MoviesPageViewModel(INavigationService navigationService, IMovieDbService movieDbService)
 			: base(navigationService)
 		{
 			this.movieDbService = movieDbService;
 			this.Title = "Ultimos Lançamentos";
 
 			this._isBusy = false;
-			this.DefineInfiniteScroll();
 			if (Device.RuntimePlatform == Device.iOS)
 			{
 				this.LoadMovies();
@@ -98,6 +99,28 @@
 					UserDialogs.Instance.HideLoading();
 					await this.NavigationService.NavigateAsync("MovieDetailPage", parameters);
 				});
+			}
+		}
+
+		public ICommand TesteCommand
+		{
+			get
+			{
+				return new Command<Movie>(
+					async movie =>
+					{
+						Console.WriteLine("OK Lets Movie! {0}", movie);
+						var index = this.Movies.IndexOf(movie);
+						if ((index + 1) >= this.Movies.Count)
+						{
+							this.IsBusy = true;
+							this.page++;
+
+							var movies = await this.movieDbService.GetMovies(search: this.SearchText, page: this.page);
+							this.IsBusy = false;
+							this.Movies.AddRange(movies);
+						}
+					});
 			}
 		}
 

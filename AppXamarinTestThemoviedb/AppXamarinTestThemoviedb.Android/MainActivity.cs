@@ -13,7 +13,7 @@
 	using Prism;
 	using Prism.Ioc;
 
-	[Activity(Label = "Filmes - Teste Inlog",
+	[Activity(Label = "Hora do filme",
 		Theme = "@style/MainTheme",
 				ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize,
 				ScreenOrientation = ScreenOrientation.Portrait | ScreenOrientation.Nosensor)]

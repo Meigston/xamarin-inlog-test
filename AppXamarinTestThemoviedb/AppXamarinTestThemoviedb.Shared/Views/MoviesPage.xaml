@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="AppXamarinTestThemoviedb.Shared.Views.MoviesPage"
+             xmlns:infinite="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+             xmlns:extension="clr-namespace:Xamarin.Forms.Skeleton;assembly=Xamarin.Forms.Skeleton"
+             xmlns:controls="clr-namespace:AppXamarinTestThemoviedb.Shared.Controls;assembly=AppXamarinTestThemoviedb.Shared"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="{StaticResource ThemeColorApp}"
+             Padding="20, 10, 20, 10"
+             Title="{Binding Title}"
+             NavigationPage.HasNavigationBar="False">
+
+	<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+		<Grid Margin="0,2,0,20">
+			<Label Text="Pesquisar" TextColor="{StaticResource ColorPrimaryContrast}" Grid.Column="0" Grid.Row="0" Margin="10,20,0,0"/>
+			<BoxView CornerRadius="10" BackgroundColor="{StaticResource ColorPrimary}" Grid.Column="0" Grid.Row="0"/>
+			<Entry MaxLength="30"
+			       Visual="Material"
+			       BackgroundColor="Transparent"
+			       HorizontalOptions="FillAndExpand"
+			       Text="{Binding SearchText}"
+			       TextColor="{StaticResource ColorPrimaryContrast}"
+			       PlaceholderColor="{StaticResource ColorPrimaryContrast}"
+			       Grid.Column="0" Grid.Row="0"
+			       TextChanged="InputView_OnTextChanged"/>
+
+			<Button Text="&#xf002;" FontFamily="{StaticResource FontAwesomeSolid}" 
+			        Grid.Row="0" 
+			        Grid.Column="0" 
+			        HorizontalOptions="End" 
+			        WidthRequest="50" 
+			        HeightRequest="10" 
+			        BackgroundColor="Transparent" 
+			        Command="{Binding SearchMoviesCommand}"/>
+		</Grid>
+
+		<CarouselView ItemsSource="{Binding Movies}"
+		              HorizontalOptions="Center"
+		              IsScrollAnimated="True"
+		              CurrentItemChangedCommand="{Binding TesteCommand}"
+		              CurrentItemChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=CurrentItem}"
+		              >
+			<CarouselView.ItemsLayout>
+				<LinearItemsLayout
+					Orientation="Horizontal"
+					SnapPointsAlignment="Center" 
+					SnapPointsType="Mandatory"
+					/>
+			</CarouselView.ItemsLayout>
+			<CarouselView.ItemTemplate>
+				<DataTemplate>
+					<!--<ViewCell Height="630">-->
+						<Frame Margin="0,0,15,0" Padding="0" BorderColor="Black" HasShadow="True" CornerRadius="2" HeightRequest="500" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource ColorPrimaryMinor}">
+							<StackLayout>
+								<forms:CachedImage Source="{Binding PosterPath}" 
+								                   LoadingPlaceholder="movie_maker.jpg"
+								                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+								                   WidthRequest="600"
+								                   HeightRequest="560"
+								                   Visual="Default"
+								                   Scale="1"
+												   Margin="0,-50 ,0,0"
+								                   extension:Skeleton.IsBusy="{Binding IsBusy}"
+								                   extension:Skeleton.BackgroundColor="{StaticResource ColorPrimaryMinor}"
+								                   extension:Skeleton.Hide="True"/>
+
+								<Grid>
+									<Ellipse Fill="#b9dadd" 
+											Opacity="0.6"
+											WidthRequest="90"
+											HeightRequest="90"
+											VerticalOptions="StartAndExpand"
+											HorizontalOptions="StartAndExpand"
+											Margin="5,-105,0,0"/>
+
+									<FlexLayout AlignSelf="Start" AlignItems="Start">
+										<controls:DrawCirleRating 
+													VerticalOptions="FillAndExpand"
+													HorizontalOptions="Start"
+													Progress="60"
+													WidthRequest="100"
+													HeightRequest="100"
+													ProgressStartColor="{StaticResource ColorRating}"
+													ProgressEndColor="{StaticResource ColorRatingProgress}"
+													StrokeWidth="20"
+													Margin="0, -110,0,0"
+													/>
+									</FlexLayout>
+
+									<Label 
+										Text="{Binding VoteAverage, StringFormat='{0:0.0}'}" 
+										Margin="25, -90,0,0" 
+										TextColor="{StaticResource ColorPrimary}" 
+										FontSize="40" 
+										FontAttributes="Bold">
+										<Label.Triggers>
+											<DataTrigger TargetType="Label" Binding="{Binding VoteAverage}" Value="10">
+												<Setter Property="Label.Text" Value="10"></Setter>
+											</DataTrigger>
+										</Label.Triggers>
+									</Label>
+								</Grid>
+
+								<Grid Padding="5,0,0,0">
+									<Label Text="&#xf008;" FontFamily="{StaticResource FontAwesomeSolid}" 
+									       Visual="Material"
+									       TextColor="{StaticResource ColorPrimary}" FontSize="Large" 
+									       extension:Skeleton.IsBusy="{Binding IsBusy}"
+									       extension:Skeleton.BackgroundColor="{StaticResource ColorPrimaryMinor2}"
+									       extension:Skeleton.Hide="True"/>
+									<Label Text="{Binding Title}" 
+									       TextColor="{StaticResource ColorPrimary}" 
+									       VerticalOptions="Center" FontSize="Medium" 
+									       Visual="Material"
+									       Padding="30,0,0,0"
+									       VerticalTextAlignment="Center"
+									       extension:Skeleton.IsBusy="{Binding IsBusy}"
+									       extension:Skeleton.BackgroundColor="{StaticResource ColorPrimaryMinor2}"
+									       extension:Skeleton.Hide="True"/>
+								</Grid>
+
+								<Grid Padding="5,0,0,7">
+									<Label Text="&#xf073;" FontFamily="{StaticResource FontAwesomeSolid}" 
+									       Visual="Material"
+									       TextColor="{StaticResource ColorPrimary}" FontSize="Large"
+									       extension:Skeleton.IsBusy="{Binding IsBusy}"
+									       extension:Skeleton.BackgroundColor="{StaticResource ColorPrimaryMinor2}"
+									       extension:Skeleton.Hide="True"/>
+									<Label Text="{Binding ReleaseDateFormat}" 
+									       TextColor="{StaticResource ColorPrimary}" 
+									       VerticalOptions="Center" FontSize="Medium" 
+									       Visual="Material"
+										   Padding="30,0,0,0"
+									       VerticalTextAlignment="Center"
+									       extension:Skeleton.IsBusy="{Binding IsBusy}"
+									       extension:Skeleton.BackgroundColor="{StaticResource ColorPrimaryMinor2}"
+									       extension:Skeleton.Hide="True"/>
+								</Grid>
+							</StackLayout>
+						</Frame>
+					<!--</ViewCell>-->
+				</DataTemplate>
+			</CarouselView.ItemTemplate>
+		</CarouselView>
+	</StackLayout>
+</ContentPage>
