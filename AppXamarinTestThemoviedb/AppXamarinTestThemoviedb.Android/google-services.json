@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "2777944327",
+    "project_id": "themovietimeapp",
+    "storage_bucket": "themovietimeapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2777944327:android:0803bf441e56ba8b60b5a2",
+        "android_client_info": {
+          "package_name": "br.com.meigston.themovietime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2777944327-sqiguaipel8i66d0ccacf8324m4r6an4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtt-VxjIPX5gtwOwYPMm3Y2QS19zYL6zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2777944327-sqiguaipel8i66d0ccacf8324m4r6an4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
