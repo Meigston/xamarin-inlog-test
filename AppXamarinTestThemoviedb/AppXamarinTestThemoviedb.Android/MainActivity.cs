@@ -4,6 +4,7 @@
 
 	using Android.App;
 	using Android.Content.PM;
+	using Android.Gms.Ads;
 	using Android.OS;
 
 	using AppXamarinTestThemoviedb.Shared;
@@ -31,6 +32,7 @@
 			UserDialogs.Init(this);
 			CachedImageRenderer.Init(null);
 			////AnimationViewRenderer.Init();
+			MobileAds.Initialize(ApplicationContext);
 			this.LoadApplication(new App(new AndroidInitializer()));
 		}
 

@@ -3,5 +3,9 @@
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<application android:label="@string/app_name" android:icon="@mipmap/icon"></application>
+	<application android:label="@string/app_name" android:icon="@mipmap/icon">
+		<meta-data
+			android:name="com.google.android.gms.ads.APPLICATION_ID"
+		    android:value="ca-app-pub-1666564490414184~7712055289"/>
+	</application>
 </manifest>

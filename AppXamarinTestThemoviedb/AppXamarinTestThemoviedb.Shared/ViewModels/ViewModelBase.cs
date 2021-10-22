@@ -1,5 +1,7 @@
 ﻿namespace AppXamarinTestThemoviedb.ViewModels
 {
+	using AppXamarinTestThemoviedb.Shared.Resources.Values;
+
 	using Prism.Mvvm;
 	using Prism.Navigation;
 
@@ -12,6 +14,14 @@
 		{
 			get { return _title; }
 			set { SetProperty(ref _title, value); }
+		}
+
+		public string IdAdMobApp
+		{
+			get
+			{
+				return Constants.IdAdMobApp;
+			}
 		}
 
 		public ViewModelBase(INavigationService navigationService)
