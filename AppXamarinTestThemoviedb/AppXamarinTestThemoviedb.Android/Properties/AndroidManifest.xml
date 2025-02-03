@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="br.com.meigston.themovietime" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="br.com.meigston.cinelancamentos" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="35" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<application android:label="@string/app_name" android:icon="@mipmap/icon">
-		<meta-data
-			android:name="com.google.android.gms.ads.APPLICATION_ID"
-		    android:value="ca-app-pub-1666564490414184~7712055289"/>
+	<application android:label="@string/app_name" android:icon="@drawable/icon">
+		<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-1666564490414184~7712055289" />
 	</application>
 </manifest>

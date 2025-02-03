@@ -14,7 +14,7 @@
 	using Prism;
 	using Prism.Ioc;
 
-	[Activity(Label = "Hora do filme",
+	[Activity(Label = "CineLançamentos",
 		Theme = "@style/MainTheme",
 				ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize,
 				ScreenOrientation = ScreenOrientation.Portrait | ScreenOrientation.Nosensor)]

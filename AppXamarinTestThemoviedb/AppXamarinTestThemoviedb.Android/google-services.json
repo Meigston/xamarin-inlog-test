@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "2777944327",
-    "project_id": "themovietimeapp",
-    "storage_bucket": "themovietimeapp.appspot.com"
+    "project_id": "cinelancamentosapp",
+    "storage_bucket": "cinelancamentos.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:2777944327:android:0803bf441e56ba8b60b5a2",
         "android_client_info": {
-          "package_name": "br.com.meigston.themovietime"
+          "package_name": "br.com.meigston.cinelancamentos"
         }
       },
       "oauth_client": [
