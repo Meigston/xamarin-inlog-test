@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:adMob="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="AppXamarinTestThemoviedb.Shared.Views.MovieDetailPage"
              NavigationPage.HasNavigationBar="True"
@@ -12,6 +13,7 @@
 	<ContentPage.Content>
 		<ScrollView Margin="-10,10,-10,0">
 			<StackLayout>
+				<adMob:MTAdView AdsId="{Binding IdAdMobApp}" HeightRequest="50" WidthRequest="320"></adMob:MTAdView>
 				<RelativeLayout>
 					<forms:CachedImage Source="{Binding ImageBackGround}" 
 					                   LoadingPlaceholder="movie_maker.jpg"
@@ -21,7 +23,7 @@
 					                   WidthRequest="500"
 					                   HeightRequest="900"
 					                   Opacity="0.1"
-					                   Margin="-120"/>
+					                   Margin="-50"/>
 					<Grid>
 						<forms:CachedImage Source="{Binding ImagePosterFull}" 
 						                   LoadingPlaceholder="movie_maker.jpg"

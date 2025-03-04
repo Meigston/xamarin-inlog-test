@@ -1,10 +1,13 @@
 ﻿namespace AppXamarinTestThemoviedb.Shared.ViewModels
 {
+	using System.Linq;
+	using System.Reflection.Metadata.Ecma335;
 	using System.Threading.Tasks;
 
 	using Acr.UserDialogs;
 
 	using AppXamarinTestThemoviedb.Shared.Models;
+	using AppXamarinTestThemoviedb.Shared.Resources.Values;
 	using AppXamarinTestThemoviedb.Shared.Services.Interfaces;
 	using AppXamarinTestThemoviedb.ViewModels;
 
@@ -69,7 +72,12 @@
 				return new DelegateCommand(async () =>
 				{
 					this.IsBusy = true;
-					UserDialogs.Instance.ShowLoading("Buscando Filmes...");
+
+					if (!Movies.Any())
+					{
+						UserDialogs.Instance.ShowLoading("Buscando Filmes...");
+					}
+
 					await this.LoadMovies();
 
 					UserDialogs.Instance.HideLoading();

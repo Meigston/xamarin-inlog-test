@@ -6,6 +6,7 @@
              xmlns:extension="clr-namespace:Xamarin.Forms.Skeleton;assembly=Xamarin.Forms.Skeleton"
              xmlns:controls="clr-namespace:AppXamarinTestThemoviedb.Shared.Controls;assembly=AppXamarinTestThemoviedb.Shared"
              xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:adMob="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              BackgroundColor="{StaticResource ThemeColorApp}"
              Padding="20, 10, 20, 10"
              Title="{Binding Title}"
@@ -14,6 +15,7 @@
 	<ContentPage.Content>
 		<ScrollView>
 			<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+				<adMob:MTAdView AdsId="{Binding IdAdMobApp}" HeightRequest="50" WidthRequest="320"></adMob:MTAdView>
 				<Grid Margin="0,2,0,0">
 					<Label Text="Pesquisar" TextColor="{StaticResource ColorPrimaryContrast}" Grid.Column="0" Grid.Row="0" Margin="10,20,0,0"/>
 					<BoxView CornerRadius="10" BackgroundColor="{StaticResource ColorPrimary}" Grid.Column="0" Grid.Row="0"/>

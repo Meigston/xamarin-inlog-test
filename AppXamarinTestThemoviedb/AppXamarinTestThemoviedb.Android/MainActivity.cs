@@ -4,6 +4,7 @@
 
 	using Android.App;
 	using Android.Content.PM;
+	using Android.Gms.Ads;
 	using Android.OS;
 
 	using AppXamarinTestThemoviedb.Shared;
@@ -13,7 +14,7 @@
 	using Prism;
 	using Prism.Ioc;
 
-	[Activity(Label = "Filmes - Teste Inlog",
+	[Activity(Label = "CineLançamentos",
 		Theme = "@style/MainTheme",
 				ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize,
 				ScreenOrientation = ScreenOrientation.Portrait | ScreenOrientation.Nosensor)]
@@ -31,6 +32,7 @@
 			UserDialogs.Init(this);
 			CachedImageRenderer.Init(null);
 			////AnimationViewRenderer.Init();
+			MobileAds.Initialize(ApplicationContext);
 			this.LoadApplication(new App(new AndroidInitializer()));
 		}
 
